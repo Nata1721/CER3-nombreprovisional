@@ -30,5 +30,8 @@ class Evento(models.Model):
     fechaTermino = models.DateTimeField(auto_now_add=False)
     titulo = models.CharField(max_length=55)
     descripcion = models.CharField(max_length=100)
-    tipo = TIPO
-    segmento = SEGMENTO
+    tipo =  models.CharField(max_length=1, choices=TIPO)
+    segmento =  models.CharField(max_length=1, choices=SEGMENTO)
+
+    def __str__(self):
+        return self.titulo
